@@ -2,7 +2,7 @@
   margin-top: 10% !important;
 }
 .site-sidebar {
-  width: 20%;
+  min-width: 20%;
   background-color: #31313179;
   margin-left: 2%;
   padding-left: 2% !important;
@@ -92,10 +92,4 @@ ul li h2:hover a {
 
 .social-icon:hover i {
   color: rgb(0, 200, 255);
-}
-
-.container-fluid {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
 }
