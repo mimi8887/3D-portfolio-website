@@ -11,4 +11,57 @@
 @import "components/index";
 @import "pages/index";
 @import 'layouts/sidebar';
-@import 'layouts/home'
+@import 'layouts/home';
+
+.container-fluid {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  /* margin-top: 2% !important; */
+}
+
+.col-md-3, .col-sm-6 {
+  padding: 0 !important;
+  /* margin: 1% !important; */
+}
+
+.container {
+  padding-left: 3% !important;
+  margin-right: 0 !important;
+  margin-top: 8% !important;
+}
+
+
+.project-card {
+  width: 100%;
+  aspect-ratio: 1 / 1 !important; /* Adjust size as needed */
+  background: #222; /* Fallback background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 4% !important;
+  background-color: black;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.project-card img:hover {
+  background-color: rgba(0, 174, 255, 0.3); /* Blue background */
+  box-shadow: 0 0 15px rgba(0, 174, 255, 0.8); /* Glowing effect */
+  border: 2px solid rgb(144, 215, 248);
+  opacity: 1;
+}
