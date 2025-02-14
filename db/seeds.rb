@@ -7,3 +7,20 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+puts 'Destroying all records...'
+Project.destroy_all
+
+puts 'Creating projects...'
+gravestones = Project.create(name: "3D Assets for Yi Li", description: "3D Assets for Yi Li")
+club_paradiso = Project.create(name: "Hikawa Yoshitaka, Poster and USB design", description: "USB album for japanese musician Hikawa Yoshitaka,
+                               poster made for the launch party in Tokyo")
+vj_video = Project.create(name: "VJ Work for Club 愛", description: "Digital Flyer made for Club 愛")
+
+puts 'Attaching photos'
+gravestones.photo.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739545592/gravestone_jk0gxe.png"),
+                         filename: "gravestone_cover_image.png", content_type: "image/png")
+club_paradiso.photo.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739552001/USB_kwvmxp.png"),
+                           filename: "USBdesign.jpg", content_type: "image/jpg")
+vj_video.photo.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739552308/VJ_hddatw.png"),
+                           filename: "VJwork.png", content_type: "image/png")
+puts "Created #{Project.count} projects!"
