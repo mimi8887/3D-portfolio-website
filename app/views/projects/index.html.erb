@@ -2,6 +2,14 @@
                   <div class="container">
                     <div class="row mt-3">
                     <!-- butterfly-asset -->
+                    <% @projects.each do |project|%>
+                    <div class="col-md-3 col-sm-6">
+                      <div class="project-card">
+                        <%= image_tag project.photo, alt: project.name %>
+                      </div>
+                    </div>
+                    <% end %>
+
                     <div class="col-md-3 col-sm-6">
                       <div class="project-card">
                       <%= image_tag "butterfly.png", alt: "Project 1" %>

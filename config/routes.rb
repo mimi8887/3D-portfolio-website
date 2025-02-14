@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :projects, only: %i[index show]
+  get "/showreel", to: "showreel#show"
 end
