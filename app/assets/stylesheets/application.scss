@@ -12,9 +12,12 @@
 @import "pages/index";
 @import 'layouts/sidebar';
 @import 'layouts/home';
+@import 'layouts/show';
 
 .container-fluid {
+  width: 100vw;
   min-height: 100vh;
+  height: 100% !important;
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -71,3 +74,7 @@
   width: 100%;
   height: 100%;
 }
+
+// .index-page {
+//   max-width: 80%;
+// }
