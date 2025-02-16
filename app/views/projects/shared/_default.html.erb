@@ -1,0 +1,14 @@
+  <div class="title">
+    <h4><%= @project.name %></h4>
+  </div>
+  <div class="description mt-3">
+    <p><%= @project.description %></p>
+
+      <% @project.photos.each do |photo| %>
+        <%= image_tag photo, alt: "Project photo", class: "img-fluid mt-3" %>
+      <% end %>
+
+      <% @project.videos.each do |video| %>
+        <%= video_tag video, controls: false, autoplay: true, loop: true, class: "img-fluid mt-3" %>
+      <% end %>
+</div>

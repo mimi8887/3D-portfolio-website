@@ -23,6 +23,14 @@ h4 {
 
 .description img {
   display: block;
-  margin-left: 10% !important;
+  margin: 0 auto;
   max-width: 60vw !important;
+}
+
+.title .description {
+  padding-left: 5%;
+}
+
+.demon {
+  width: 70% !important;
 }
