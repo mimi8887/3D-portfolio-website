@@ -6,8 +6,16 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @template = case @project.category
-                when "gravestone", "demon", "gingko"
+                when "demon", "gingko", "vjs"
                   "video_only"
+                when "gravestone"
+                  "gravestone"
+                when "ceramic_works"
+                  "ceramics"
+                when "swans"
+                  "swans"
+                when "penguins"
+                  "penguins"
                 else
                   "default"
                 end

@@ -1,18 +1,10 @@
-h4 {
-  font-size: 2em !important;
-  color: #ffffff79 !important;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400 !important;
-}
-
 .project-title {
-  width: 70vw;
-  margin-top: 8% !important;
+  margin-top: 9% !important;
 }
 
 .back-button a {
   margin-top: 5%;
-  padding-left: 5%;
+  padding-left: 8.5%;
   color: inherit;
   text-decoration: none;
 }
@@ -31,6 +23,80 @@ h4 {
   padding-left: 5%;
 }
 
+
+.index-page {
+  width: 100% !important;
+}
+
+.show-page {
+  width: 100%;
+}
+
+.text-left {
+  padding-left: 9%;
+}
+
+// images
+
 .demon {
-  width: 70% !important;
+  width: 60% !important;
+  display: block;
+  margin: 0 auto;
+}
+
+.gravestone {
+  padding: 0 !important ;
+  position: relative;
+  transform: scale(1.1);
+  overflow: hidden;
+}
+
+.ceramics {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+
+.club-paradiso {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+.swans {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+}
+
+.penguins {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.gingko {
+  width: 95%;
+  display: block;
+  margin: 0 auto;
+}
+
+.vjs {
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 80vh;
+  background: black;
+}
+
+.video-container iframe {
+  width: 80vw;
+  height: 80vh;
 }
