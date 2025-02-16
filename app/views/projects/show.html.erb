@@ -2,13 +2,7 @@
   <h2><%= link_to "Back", projects_path %></h2>
 </div>
 
-<div class="project-title text-center">
+<div class="project-title text-center mb-5">
   <h2>PROFESSIONAL</h2>
-  <h4><%= @project.name %></h4>
-    <div class="description mt-3">
-      <p><%= @project.description %></p>
-        <% @project.photos.each do |photo| %>
-          <%= image_tag photo, alt: "Project photo", class: "img-fluid mt-3" %>
-        <% end %>
-    </div>
+  <%= render "projects/shared/#{@template}" %>
 </div>

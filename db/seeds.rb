@@ -11,16 +11,16 @@ puts 'Destroying all records...'
 Project.destroy_all
 
 puts 'Creating projects...'
-gravestones = Project.create(name: "3D Assets for Yi Li", description: "3D Assets for Yi Li")
+gravestones = Project.create(name: "3D Assets for Yi Li", category: "gravestone", description: "3D Assets for Yi Li")
 club_paradiso = Project.create(name: "Hikawa Yoshitaka, Poster and USB design", description: "USB album for japanese musician Hikawa Yoshitaka,
                                poster made for the launch party in Tokyo")
-club_ai = Project.create(name: "Flyer Club 愛", description: "Digital Flyer made for Club 愛")
-vj_video = Project.create(name: "VJ Work for Club 愛", description: "Digital Flyer made for Club 愛")
-gingko = Project.create(name: "gingko", description: "other time")
-ernie_castle = Project.create(name: "3D modelling for Ernie Wang", description: "3D modelling for Efermidis Gallery")
-juan_carlos = Project.create(name: "Juan Carlos avatar", description: "Avatar for Conversation in a crosstown algorithm")
-gentle_leash = Project.create(name: "Gentle Leash", description: "Poster for PanAsian event in Hamburg")
-smart_city = Project.create(name: "Smart City", description: "3D animation short video")
+club_ai = Project.create(name: "Flyer Club 愛", category: "demon", description: "Digital Flyer made for Club 愛")
+vj_video = Project.create(name: "VJ Work for Club 愛", category: "vjs", description: "Digital Flyer made for Club 愛")
+gingko = Project.create(name: "gingko", category: "gingko", description: "other time")
+ernie_castle = Project.create(name: "3D modelling for Ernie Wang", category: "ceramic_works", description: "3D modelling for Efermidis Gallery")
+juan_carlos = Project.create(name: "Juan Carlos avatar", category: "avatar", description: "Avatar for Conversation in a crosstown algorithm")
+gentle_leash = Project.create(name: "Gentle Leash", category: "swans", description: "Poster for PanAsian event in Hamburg")
+smart_city = Project.create(name: "Smart City", category: "penguins", description: "3D animation short video")
 
 puts 'Attaching photos'
 
