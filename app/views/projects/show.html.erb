@@ -1,8 +1,18 @@
-<div class="back-button mt-5">
-  <h2><%= link_to "Back", projects_path %></h2>
-</div>
+<div class="show-page">
+  <div class="back-button mt-5">
+    <h2><%= link_to "Back", projects_path %></h2>
+  </div>
 
-<div class="project-title text-center mb-5">
-  <h2>PROFESSIONAL</h2>
-  <%= render "projects/shared/#{@template}" %>
+  <div class="project-title text-center mb-1">
+    <h2>PROFESSIONAL</h2>
+  </div>
+
+  <div class="title text-center">
+      <h4><%= @project.name %></h4>
+  </div>
+
+  <div class="description  text-center mt-3">
+    <p><%= @project.description %></p>
+  </div>
+    <%= render "projects/shared/#{@template}" %>
 </div>

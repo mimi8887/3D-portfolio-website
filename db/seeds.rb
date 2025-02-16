@@ -44,7 +44,11 @@ club_ai.videos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/video/u
 
 vj_video.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739660641/STAR_CIRCLE_-_frame_at_0m4s_tpyscr.jpg"),
                        filename: "VJwork.png")
-vj_video.videos.attach([io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739544960/wings_hqyeo4.mp4"), filename: "wings.mp4"])
+vj_video.videos.attach([
+  {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739544960/wings_hqyeo4.mp4"), filename: "wings.mp4"},
+  {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739744650/star_circle_short_yahkqk.mp4"), filename: "star.mp4"},
+  {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739743572/magic_circle_short_1_xzrfha.mp4"), filename: "magical_circle.mp4"}
+  ])
 
 ernie_castle.photos.attach([
   {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544934/image4_btk5ts.png"), filename: "image_front.png"},
@@ -55,7 +59,8 @@ juan_carlos.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/ima
 
 gentle_leash.photos.attach([
   {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739648423/cover_nlbxob.jpg"), filename: "cover.jpg"},
-  {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739660281/A2_poster_blue_tfuqab.jpg"), filename: "poster.jpg"}
+  {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739660281/A2_poster_blue_tfuqab.jpg"), filename: "poster.jpg"},
+  {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739743636/untitled_x8rwmi.jpg"), filename: "swans.jpg"}
   ])
 
 

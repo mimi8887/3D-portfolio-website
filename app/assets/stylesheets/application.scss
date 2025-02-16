@@ -14,15 +14,23 @@
 @import 'layouts/home';
 @import 'layouts/show';
 
+body, html {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
 .container-fluid {
-  width: 100vw;
+  width: 150%;
   min-height: 100vh;
   height: 100% !important;
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  padding-left: 0rem !important;
+  padding-right: 0rem !important;
+  overflow: hidden;
 }
-
 
 .row {
   display: flex;
@@ -78,3 +86,9 @@
 // .index-page {
 //   max-width: 80%;
 // }
+h4 {
+  font-size: 2em !important;
+  color: #ffffff79 !important;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400 !important;
+}
