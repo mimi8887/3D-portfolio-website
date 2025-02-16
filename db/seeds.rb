@@ -37,7 +37,7 @@ club_paradiso.photos.attach([
    {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544918/club_glhfg5.png"), filename: "poster.jpg"}])
 
 
-club_ai.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739743576/renderforeground_zaakzq.png"),
+club_ai.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739553718/poster1_rgyv4m.png"),
                       filename: "poster.png")
 club_ai.videos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739544974/HD_01_e9hgpg.mp4"),
                       filename: "poster.mp4")
@@ -46,7 +46,7 @@ vj_video.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/
                        filename: "VJwork.png")
 vj_video.videos.attach([
   {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739544960/wings_hqyeo4.mp4"), filename: "wings.mp4"},
-  {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739660641/STAR_CIRCLE_-_frame_at_0m4s_tpyscr.jpg"), filename: "star.mp4"},
+  {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739744650/star_circle_short_yahkqk.mp4"), filename: "star.mp4"},
   {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739743572/magic_circle_short_1_xzrfha.mp4"), filename: "magical_circle.mp4"}
   ])
 
