@@ -22,6 +22,15 @@ juan_carlos = Project.create(name: "Juan Carlos avatar", category: "avatar", des
 gentle_leash = Project.create(name: "Gentle Leash", category: "swans", description: "Poster for PanAsian event in Hamburg")
 smart_city = Project.create(name: "Smart City", category: "penguins", description: "3D animation short video")
 
+puts "Creating Mobile Applications..."
+
+run_aware = Application.create(name: "Run Aware", description: "As part of a team of four, we developed a Ruby on Rails mobile app designed for runners in Berlin.
+                               The app allows users to generate custom running routes, bookmark their paths, and share their experiences through photos and comments.",
+                              link: "https://run-aware-17833b6c8f21.herokuapp.com/users/sign_in")
+ab_ar = Application.create(name: "AB AR", description: "ABAR is an interactive app that allows users to explore digital art and soundscapes during an exhibition.
+                           In a team of two, I contributed to 3D modeling, AR implementation, and successfully deploying the app to both the Google Play Store and the Apple App Store.",
+                           link: "https://apps.apple.com/us/app/ab-ar/id6463257681")
+
 puts 'Attaching photos'
 
 gravestones.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739545592/gravestone_jk0gxe.png"), filename: "gravestone.png")
@@ -73,4 +82,11 @@ gingko.videos.attach([
   {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739661433/gingko_g8xkgm.mp4"), filename: "poster.mp4"},
   {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739661446/gingko_all_q99vbh.mp4"), filename: "poster.mp4"}])
 
-puts "Created #{Project.count} projects!"
+# applications photos
+
+run_aware.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739985750/RunAware-2_tqkghs.png"), filename: "runaware.png")
+
+ab_ar.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739985746/ABAR_wxmeuk.png"), filename: "ab_ar.png")
+
+
+puts "Created #{Project.count} projects and #{Application.count} applications!"

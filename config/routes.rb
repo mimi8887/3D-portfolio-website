@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   resources :projects, only: %i[index show]
   get "/showreel", to: "showreel#show"
+  get "/apps", to: "apps#index"
+  get 'resume', to: 'resume#show'
 end
