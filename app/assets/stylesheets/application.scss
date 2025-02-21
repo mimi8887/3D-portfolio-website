@@ -93,6 +93,12 @@ h4 {
   font-weight: 400 !important;
 }
 
+h5 {
+  font-size: 1.25em !important;
+  color: #ffffff79 !important;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 450 !important;
+}
 // application
 
 .application-card {
@@ -131,3 +137,51 @@ h4 {
 .apps {
   margin-right: 4% !important;
 }
+
+// resume
+
+.cv {
+  padding-right: 20%;
+  padding-left: 5%;
+}
+
+.name {
+  padding-left: 20%
+}
+
+.skills {
+  padding-right: 2%;
+  margin: 0% !important;
+  color: rgb(0, 119, 158);
+}
+
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping if needed */
+  gap: 15px; /* Adds space between icons */
+  justify-content: left; /* Centers icons */
+}
+.tech-icons i {
+  font-size: 40px;
+  margin-right: 5px; /* Adds spacing around each icon */
+}
+
+.si-html5 { color: #E34F26; }     /* HTML5 - Orange */
+.si-sass { color: #CC6699; }      /* SCSS/Sass - Pink */
+.si-javascript { color: #F7DF1E; } /* JavaScript - Yellow */
+.si-ruby { color: #CC342D; }      /* Ruby - Red */
+.si-rails { color: #CC0000; }     /* Ruby on Rails - Dark Red */
+.si-python { color: #3776AB; }    /* Python - Blue */
+.si-c { color: #A8B9CC; }         /* C - Light Blue */
+.si-mysql { color: #4479A1; }     /* MySQL - Blue */
+.si-git { color: #F05032; }       /* Git - Orange */
+.si-github { color: #ffffff; }    /* GitHub - Black */
+.si-figma { color: #F24E1E; }     /* Figma - Multicolor (Using Red here) */
+.si-heroku { color: #430098; }
+.si-blender { color: #F5792A; }
+.si-unity { color: #ffffff; }
+.si-aftereffects { color: #A435F0; }
+.si-premierepro { color: #9999FF; }
+.si-davinciresolve { color: #4B82A2; }
+.si-photoshop { color: #31A8FF; }
+.si-xcode { color: #0061F2; }
