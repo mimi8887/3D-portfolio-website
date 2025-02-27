@@ -14,15 +14,23 @@
 @import 'layouts/home';
 @import 'layouts/show';
 
+body, html {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
 .container-fluid {
-  width: 100vw;
+  width: 150%;
   min-height: 100vh;
   height: 100% !important;
   display: flex;
   flex-direction: row;
   align-items: stretch;
+  padding-left: 0rem !important;
+  padding-right: 0rem !important;
+  overflow: hidden;
 }
-
 
 .row {
   display: flex;
@@ -78,3 +86,136 @@
 // .index-page {
 //   max-width: 80%;
 // }
+h4 {
+  font-size: 2em !important;
+  color: #ffffff79 !important;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 400 !important;
+}
+
+h5 {
+  font-size: 1.25em !important;
+  color: #ffffff79 !important;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 450 !important;
+}
+// application
+
+.application-card {
+  width: 100%;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 2% !important;
+  background-color: black;
+}
+
+.application-card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.application-card img:hover {
+  background-color: rgba(0, 174, 255, 0.3); /* Blue background */
+  box-shadow: 0 0 15px rgba(0, 174, 255, 0.8); /* Glowing effect */
+  border: 2px solid rgb(144, 215, 248);
+  opacity: 1;
+}
+
+.application-card  a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.apps {
+  margin-right: 4% !important;
+}
+
+// resume
+
+.cv {
+  padding-right: 20%;
+  padding-left: 5%;
+}
+
+.name {
+  padding-left: 20%
+}
+
+.skills {
+  padding-right: 2%;
+  margin: 0% !important;
+  color: rgb(0, 119, 158);
+}
+
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping if needed */
+  gap: 15px; /* Adds space between icons */
+  justify-content: left; /* Centers icons */
+}
+.tech-icons i {
+  font-size: 40px;
+  margin-right: 5px; /* Adds spacing around each icon */
+}
+
+.si-html5 { color: #E34F26; }     /* HTML5 - Orange */
+.si-sass { color: #CC6699; }      /* SCSS/Sass - Pink */
+.si-javascript { color: #F7DF1E; } /* JavaScript - Yellow */
+.si-ruby { color: #CC342D; }      /* Ruby - Red */
+.si-rails { color: #CC0000; }     /* Ruby on Rails - Dark Red */
+.si-python { color: #3776AB; }    /* Python - Blue */
+.si-c { color: #A8B9CC; }         /* C - Light Blue */
+.si-mysql { color: #4479A1; }     /* MySQL - Blue */
+.si-git { color: #F05032; }       /* Git - Orange */
+.si-github { color: #ffffff; }    /* GitHub - Black */
+.si-figma { color: #F24E1E; }     /* Figma - Multicolor (Using Red here) */
+.si-heroku { color: #430098; }
+.si-blender { color: #F5792A; }
+.si-unity { color: #ffffff; }
+.si-aftereffects { color: #A435F0; }
+.si-premierepro { color: #9999FF; }
+.si-davinciresolve { color: #4B82A2; }
+.si-photoshop { color: #31A8FF; }
+.si-xcode { color: #0061F2; }
+
+// form
+.container {
+    min-width: 1000px;
+    margin: auto;
+}
+
+.form-control {
+  background-color: black !important;
+  border: none !important;
+  border-bottom: 2px solid rgb(0, 195, 255)  !important;
+  border-radius: 0  !important;
+  color: white;
+  outline: none;
+  box-shadow: none;
+}
+.form-control:focus {
+  box-shadow: none !important;
+  border-bottom: 2px solid #007bff;
+}
+textarea {
+  resize: none; /* Prevent resizing */
+}
+
+.btn {
+  background-color:  rgb(3, 119, 154) !important;
+  border-radius: 0  !important;
+
+}
+
+.btn:hover {
+  background-color:  rgb(0, 195, 255) !important;
+
+}
