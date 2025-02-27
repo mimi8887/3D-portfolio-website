@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get "/showreel", to: "showreel#show"
   get "/apps", to: "apps#index"
   get 'resume', to: 'resume#show'
+  get 'form', to: 'form#show'
 end

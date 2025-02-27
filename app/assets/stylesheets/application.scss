@@ -185,3 +185,37 @@ h5 {
 .si-davinciresolve { color: #4B82A2; }
 .si-photoshop { color: #31A8FF; }
 .si-xcode { color: #0061F2; }
+
+// form
+.container {
+    min-width: 1000px;
+    margin: auto;
+}
+
+.form-control {
+  background-color: black !important;
+  border: none !important;
+  border-bottom: 2px solid rgb(0, 195, 255)  !important;
+  border-radius: 0  !important;
+  color: white;
+  outline: none;
+  box-shadow: none;
+}
+.form-control:focus {
+  box-shadow: none !important;
+  border-bottom: 2px solid #007bff;
+}
+textarea {
+  resize: none; /* Prevent resizing */
+}
+
+.btn {
+  background-color:  rgb(3, 119, 154) !important;
+  border-radius: 0  !important;
+
+}
+
+.btn:hover {
+  background-color:  rgb(0, 195, 255) !important;
+
+}
