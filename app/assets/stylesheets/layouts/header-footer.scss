@@ -1,0 +1,27 @@
+
+.social-icon {
+  color: rgb(106, 106, 106);
+  font-size: 1rem;
+  margin-right: 15px;
+}
+
+.social-icon:hover {
+  color: #00c3ff;
+}
+
+.dropdown-item a,
+.dropdown-item h5 {
+  text-decoration: none;  /* Removes underline */
+  color: inherit;         /* Inherit the font color from the parent element */
+  font-size: inherit;     /* Inherit font size from the parent */
+  font-weight: inherit;
+  margin-top: 0;  /* Remove top margin */
+  margin-bottom: 0;  /* Remove bottom margin */
+  padding: 0;   /* Inherit font weight from the parent */
+}
+
+.dropdown-item a:hover,
+.dropdown-item a:focus {
+  text-decoration: none;  /* Ensure no underline on hover/focus */
+  color: inherit;         /* Ensure the color remains the same on hover/focus */
+}

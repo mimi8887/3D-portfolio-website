@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  resources :projects, only: %i[index show]
+  resources :projects, only: [:show]
+  get '/graphics', to: 'projects#graphics', as: 'graphics'
   get "/showreel", to: "showreel#show"
   get "/apps", to: "apps#index"
   get 'resume', to: 'resume#show'

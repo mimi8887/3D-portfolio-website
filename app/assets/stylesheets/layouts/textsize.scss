@@ -33,6 +33,10 @@ h5 {
   color: #b6b6b6 !important;
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400 !important;
+  a {
+    color: inherit !important;  // Make links inherit color from h5
+    text-decoration: none !important; // Remove underline
+  }
 }
 
 h6 {

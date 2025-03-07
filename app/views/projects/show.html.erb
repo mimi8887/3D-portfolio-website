@@ -1,18 +1,15 @@
-<div class="show-page">
-  <div class="back-button mt-5">
-    <p><%= link_to "Back", projects_path %></p>
+<div class="container-fluid flex-grow-1 d-flex mt-4 pt-5">
+  <div class="row w-100">
+      <div class="col-md-4 col-12 px-5 mt-3">
+        <div class="description">
+          <p class="bold"><%= @project.name %></p>
+          <p><%= @project.description %></p>
+        </div>
+      </div>
+      <div class="col-md-6 col-12">
+          <%= video_tag @project.videos.first, controls: false, autoplay: true, loop: true, class: "#{@project.name} img-fluid mt-3" %>
+      </div>
+          </div>
+        </div>
+      </div>
   </div>
-
-  <div class="project-title text-center mb-1">
-    <h5>PROFESSIONAL</h5>
-  </div>
-
-  <div class="title text-center">
-      <h1><%= @project.name %></h1>
-  </div>
-
-  <div class="description  text-center mt-3">
-    <p><%= @project.description %></p>
-  </div>
-    <%= render "projects/shared/#{@template}" %>
-</div>

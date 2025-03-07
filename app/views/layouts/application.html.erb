@@ -15,11 +15,12 @@
   </head>
 
   <body class="<%= controller_name %>-<%= action_name %>">
-    <div class="container-fluid m-0 pe-0 <%= 'bg-black' unless controller_name == 'pages' && action_name == 'home' %> ">
-        <%= render "shared/sidebar" %>
+    <div class="container-fluid m-0 pe-0 bg-black ">
+        <%= render "shared/header" %>
         <div>
           <%= yield %>
         </div>
+        <%= render "shared/footer" %>
     </div>
   </body>
 </html>
