@@ -1,0 +1,22 @@
+ <div class="position-absolute start-0 end-0">
+      <div class="d-flex align-items-center justify-content-between">
+
+        <div class="d-flex">
+              <%= link_to root_path do %>
+                <i class="fa-solid fa-house text-secondary mx-4 mt-4 mb-4" style="font-size: 1rem;"></i>
+              <% end %>
+              <div class="dropdown mx-4 mt-4 mb-4">
+                <h5 class="dropdown-toggle" data-bs-toggle="dropdown" id="navbarDarkDropdownMenuLink" role="button" aria-expanded="false">
+                    3D Projects
+                </h5>
+                <ul class="dropdown-menu dropdown-menu-dark mt-1">
+                      <li><%= link_to "Covers/Graphics", graphics_path, class: "dropdown-item" %></li>
+                      <li><a class="dropdown-item" href="#">Assets</a></li>
+                      <li><a class="dropdown-item" href="#">Personal Projects</a></li>
+                  </ul>
+            </div>
+            <h5 class="mx-4 mt-4 mb-4"><%= link_to "Apps", apps_path %></h5>
+            <h5 class="mx-4 mt-4 mb-4"><%= link_to "Services", resume_path %></h5>
+        </div>
+      </div>
+    </div>

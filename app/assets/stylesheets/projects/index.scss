@@ -1,0 +1,105 @@
+
+.container-fluid {
+  width: 150%;
+  min-height: 100vh;
+  height: 100% !important;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  padding-left: 0rem !important;
+  padding-right: 0rem !important;
+  overflow: hidden;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  /* margin-top: 2% !important; */
+}
+
+.col-md-3, .col-sm-6 {
+  padding: 0 !important;
+  /* margin: 1% !important; */
+}
+
+.description{
+  padding-left: 10% !important;
+}
+
+.container {
+  padding-left: 3% !important;
+  margin-right: 0 !important;
+  margin-top: 8% !important;
+}
+
+.bold{
+  font-weight: bold !important;
+}
+
+.intro-box {
+  width: 35%;
+  margin-right: 5%;
+}
+
+.project-card {
+  width: 100%;
+  aspect-ratio: 1 / 1 !important; /* Adjust size as needed */
+  background: #222; /* Fallback background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 4% !important;
+  background-color: black;
+}
+
+.project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.project-card img:hover {
+  box-shadow: 0 0 15px rgba(0, 174, 255, 0.8);
+  border: 2px solid rgb(144, 215, 248);
+  opacity: 1;
+}
+
+.project-card a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.graphics-project-card {
+  width: 100%;
+  aspect-ratio: 1 / 1.5 !important; /* Adjust size as needed */
+  background: #222; /* Fallback background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 4% !important;
+  background-color: black;
+}
+
+.graphics-project-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.graphics-project-card img:hover {
+  box-shadow: 0 0 15px rgba(0, 174, 255, 0.8);
+  border: 2px solid rgb(144, 215, 248);
+  opacity: 1;
+}
+
+.graphics-project-card a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
