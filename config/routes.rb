@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :projects, only: [:show]
   get '/graphics', to: 'projects#graphics', as: 'graphics'
+  get '/assets', to: 'projects#assets', as: 'assets'
   get "/showreel", to: "showreel#show"
   get "/apps", to: "apps#index"
   get 'resume', to: 'resume#show'
