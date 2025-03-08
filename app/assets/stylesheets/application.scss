@@ -22,7 +22,12 @@ body, html {
   padding: 0 !important;
 }
 
-
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 // .index-page {
 //   max-width: 80%;
