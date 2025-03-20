@@ -9,22 +9,7 @@
         </div>
       </div>
       <div class="col-md-8 col-12">
-        <div class="horizontal-bar"></div>
-          <div class="row">
-            <% @projects.each_slice(3) do |graphics_group| %>
-              <div class="row">
-                <% graphics_group.each do |graphic| %>
-                  <div class="col-md-4 col-sm-6">
-                  <%= link_to project_path(graphic) do %>
-                    <div class="graphics-project-card px-2">
-                        <%= image_tag graphic.photos.first, alt: graphic.name %>
-                    <% end %>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            <% end %>
-        </div>
-      </div>
+    <canvas data-controller="threejs" id="canvas"></canvas>
+     </div>
   </div>
 </div>
