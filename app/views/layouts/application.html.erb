@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@latest/font/simple-icons.min.css">
@@ -18,7 +17,7 @@
   <body class="<%= controller_name %>-<%= action_name %> d-flex flex-column">
     <div class="container-fluid m-0 pe-0 bg-black ">
         <%= render "shared/header" %>
-        <div>
+        <div class="vh-100 w-100">
           <%= yield %>
         </div>
         <%= render "shared/footer" %>
