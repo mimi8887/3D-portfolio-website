@@ -1,1 +1,30 @@
-<canvas data-controller="threejs" id="canvas" class="vh-100 w-100"></canvas>
+<%# <canvas data-controller="threejs" id="canvas" class="w-100"></canvas> %>
+<div class="container-fluid flex-grow-1 d-flex mt-4 pt-5">
+  <div class="row w-100">
+      <div class="col-md-4 col-12 px-5 mt-3">
+        <div class="description">
+          <p class="bold">Freelance Projects</p>
+          <p>Designed and optimized 3D models and assets using Blender, Unity,
+             and other software for clients in the art, music, and creative industries.</p>
+          <p>Choose a project and interact with the 3D model!</p>
+        </div>
+      </div>
+      <div class="col-md-8 col-12">
+        <div class="row">
+          <% @projects.each_slice(3) do |graphics_group| %>
+            <div class="row">
+              <% graphics_group.each do |graphic| %>
+                <div class="col-md-4 col-sm-6">
+                <%= link_to project_path(graphic) do %>
+                  <div class="graphics-project-card px-3">
+                      <%= image_tag graphic.photos.first, alt: graphic.name %>
+                  <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
