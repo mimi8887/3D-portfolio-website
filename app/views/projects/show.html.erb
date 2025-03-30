@@ -1,13 +1,13 @@
 <div class="container-fluid flex-grow-1 d-flex mt-4 pt-5">
   <div class="row w-100">
-      <div class="col-md-4 col-12 px-5 mt-3">
+      <div class="col-md-4 col-12 px-5 mb-5">
+        <%= video_tag @project.videos.first, controls: false, autoplay: true, loop: true, class: "vh-80 img-fluid" %>
+      </div>
+      <div class="col-md-6 col-12">
         <div class="description">
           <p class="bold"><%= @project.name %></p>
           <p><%= @project.description %></p>
         </div>
-      </div>
-      <div class="col-md-6 col-12">
-          <%= video_tag @project.videos.first, controls: false, autoplay: true, loop: true, class: "#{@project.name} img-fluid mt-3" %>
       </div>
           </div>
         </div>
