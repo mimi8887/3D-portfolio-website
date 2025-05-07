@@ -1,108 +1,110 @@
 import { Controller } from "@hotwired/stimulus";
 import * as THREE from "three";
+// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm//three@0.165.0/examples/jsm/loaders/GLTFLoader.js'
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/controls/OrbitControls.js';
 
 export default class extends Controller {
+  static targets = ["container"];
+
   connect() {
     console.log("hello, stimulus!", this.element);
     console.log("Three.js version:", THREE.REVISION);
-    console.log("Three.js classes:", {
-      Scene: THREE.Scene,
-      WebGLRenderer: THREE.WebGLRenderer
-    });
-    this.scene = new THREE.Scene();
-
-    this.camera = new THREE.PerspectiveCamera(75, this.element.clientWidth / this.element.clientHeight, 0.1, 1000);
-
-    this.renderer = new THREE.WebGLRenderer({ canvas: this.element });
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-
-    this.geometry = new THREE.BoxGeometry();
-    this.material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-
-    // this.originCube = this.createCube(0, 0, 0);
-    // this.scene.add(this.originCube);
-
-    // this.camera.position.set(0, 5, 10);
-    // this.camera.lookAt(0, 0, 0);
-
-    this.addArtworks();
-
+    this.initScene();
+    this.loadModels();
+    this.setupEventListeners();
     this.animate();
   }
+  disconnect() {
+    cancelAnimationFrame(this.animationFrameId);
+    window.removeEventListener('resize', this.handleWindowResize);
+    this.renderer.dispose();
+  }
 
-  addArtworks() {
-    const count = 6; // Number of green code items
-    const rootNode = new THREE.Object3D();
-    this.scene.add(rootNode);
+  initScene() {
+    // Renderer setup
+    this.renderer = new THREE.WebGLRenderer({ antialias: true });
+    this.renderer.outputColorSpace = THREE.SRGBColorSpace;
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.setClearColor(0x000000);
+    this.renderer.setPixelRatio(window.devicePixelRatio);
+    this.renderer.shadowMap.enabled = true;
+    this.element.appendChild(this.renderer.domElement);
 
-    for (let i = 0; i < count; i++) {
-      const baseNode = new THREE.Object3D();
-      baseNode.rotation.y = i * (2 * Math.PI / count); // Rotate around the center
-      rootNode.add(baseNode);
+    // Scene and camera
+    this.scene = new THREE.Scene();
+    this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+    this.camera.position.set(30, 10, 30);
 
-      // Border
-      const border = new THREE.Mesh(
-        new THREE.BoxGeometry(3.1, 4.1, 0.09),
-        new THREE.MeshBasicMaterial({ color: 0x202020 }) // Dark border
-      );
-      border.name = `Border_${i}`;
-      border.position.z = -4;
-      baseNode.add(border);
+    // Controls
+    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.controls.enableDamping = true;
+    this.controls.enablePan = false;
+    this.controls.minDistance = 5;
+    this.controls.maxDistance = 20;
+    this.controls.minPolarAngle = 0.5;
+    this.controls.maxPolarAngle = 1.5;
+    this.controls.autoRotate = false;
+    this.controls.target = new THREE.Vector3(2, 2.5, 1);
+    this.controls.update();
 
-      // Artwork (Green code block)
-      const artwork = new THREE.Mesh(
-        new THREE.BoxGeometry(3, 4, 0.1),
-        new THREE.MeshBasicMaterial({ color: 0x00ff00 }) // Bright green
-      );
-      artwork.name = `Art_${i}`;
-      artwork.position.z = -4;
-      baseNode.add(artwork);
+    // Lighting
+    this.setupLights();
+  }
 
-      // Left arrow
-      const leftArrow = new THREE.Mesh(
-        new THREE.BoxGeometry(0.2, 0.2, 0.01),
-        new THREE.MeshStandardMaterial({
-          color: 0xffffff,
-          transparent: true,
-          opacity: 0.8
-        })
-      );
-      leftArrow.name = `LeftArrow_${i}`;
-      leftArrow.position.set(-1.8, 0, -4);
-      baseNode.add(leftArrow);
+  setupLights() {
+    const spotLight = new THREE.SpotLight(new THREE.Color(0.43, 0.21, 1), 3000, 100, 0.22, 1);
+    spotLight.position.set(20, 50, 0.68);
+    spotLight.castShadow = true;
+    spotLight.shadow.bias = -0.0001;
+    this.scene.add(spotLight);
 
-      // Right arrow
-      const rightArrow = new THREE.Mesh(
-        new THREE.BoxGeometry(0.2, 0.2, 0.01),
-        new THREE.MeshStandardMaterial({
-          color: 0xffffff,
-          transparent: true,
-          opacity: 0.8
-        })
-      );
-      rightArrow.name = `RightArrow_${i}`;
-      rightArrow.position.set(1.8, 0, -4);
-      baseNode.add(rightArrow);
-    }
+    // Other lights setup similarly...
+    // [Keep the rest of your lighting setup code here]
+  }
 
-    this.rootNode = rootNode; // Save the rootNode for potential future updates
+  loadModels() {
+    const models = [
+      { path: '/app/assets/3Dmodels/wall-floor/wall-floor.glb', scale: 0.5 },
+      { path: '/app/assets/3Dmodels/chair/chair.gltf', scale: 0.5 },
+      { path: '/app/assets/3Dmodels/desk/desk.glb', scale: 0.5 },
+      { path: '/app/assets/3Dmodels/screens/screens.glb', scale: 0.5 },
+      { path: '/app/assets/3Dmodels/curtain/curtain.glb', scale: 0.5 },
+      { path: '/app/assets/3Dmodels/bed/bed.gltf', scale: 0.5 },
+      { path: '/app/assets/3Dmodels/left_wall/left_wall.gltf', scale: 0.5 },
+      { path: '/app/assets/3Dmodels/aquarium/aquarium.glb', scale: 0.5 },
+      { path: '/app/assets/3Dmodels/table/low-table.glb', scale: 0.5 }
+    ];
+
+    const loader = new GLTFLoader();
+    models.forEach(model => {
+      loader.load(`/assets/${model.path}`, (gltf) => {
+        gltf.scene.traverse((child) => {
+          if (child.isMesh) {
+            if (child.material.map) child.material.map.colorSpace = THREE.SRGBColorSpace;
+            child.castShadow = true;
+            child.receiveShadow = true;
+          }
+        });
+        gltf.scene.scale.set(model.scale, model.scale, model.scale);
+        this.scene.add(gltf.scene);
+      });
+    });
+  }
+
+  setupEventListeners() {
+    this.handleWindowResize = () => {
+      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.camera.updateProjectionMatrix();
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+    window.addEventListener('resize', this.handleWindowResize);
   }
 
   animate() {
-    requestAnimationFrame(this.animate.bind(this));
-
-    // Rotate the cube
-    // this.originCube.rotation.x += 0.01;
-    // this.originCube.rotation.y += 0.01;
-
-    // Render the scene
+    this.animationFrameId = requestAnimationFrame(this.animate.bind(this));
+    this.controls.update();
     this.renderer.render(this.scene, this.camera);
-  }
-
-  createCube(x, y, z) {
-    const cube = new THREE.Mesh(this.geometry, this.material);
-    cube.position.set(x, y, z);
-
-    return cube;
   }
 }
