@@ -66,20 +66,20 @@ export default class extends Controller {
 
   loadModels() {
     const models = [
-      { path: '/app/assets/3Dmodels/wall-floor/wall-floor.glb', scale: 0.5 },
-      { path: '/app/assets/3Dmodels/chair/chair.gltf', scale: 0.5 },
-      { path: '/app/assets/3Dmodels/desk/desk.glb', scale: 0.5 },
-      { path: '/app/assets/3Dmodels/screens/screens.glb', scale: 0.5 },
-      { path: '/app/assets/3Dmodels/curtain/curtain.glb', scale: 0.5 },
-      { path: '/app/assets/3Dmodels/bed/bed.gltf', scale: 0.5 },
-      { path: '/app/assets/3Dmodels/left_wall/left_wall.gltf', scale: 0.5 },
-      { path: '/app/assets/3Dmodels/aquarium/aquarium.glb', scale: 0.5 },
-      { path: '/app/assets/3Dmodels/table/low-table.glb', scale: 0.5 }
+      { path: '3Dmodels/wall-floor/wall-floor.glb', scale: 0.5 },
+      { path: '3Dmodels/chair/chair.gltf', scale: 0.5 },
+      { path: '3Dmodels/desk/desk.glb', scale: 0.5 },
+      { path: '3Dmodels/screens/screens.glb', scale: 0.5 },
+      { path: '3Dmodels/curtain/curtain.glb', scale: 0.5 },
+      { path: '3Dmodels/bed/bed.gltf', scale: 0.5 },
+      { path: '3Dmodels/left_wall/left_wall.gltf', scale: 0.5 },
+      { path: '3Dmodels/aquarium/aquarium.glb', scale: 0.5 },
+      { path: '3Dmodels/table/low-table.glb', scale: 0.5 }
     ];
 
     const loader = new GLTFLoader();
     models.forEach(model => {
-      loader.load(`/assets/${model.path}`, (gltf) => {
+      loader.load(`/app/assets/${model.path}`, (gltf) => {
         gltf.scene.traverse((child) => {
           if (child.isMesh) {
             if (child.material.map) child.material.map.colorSpace = THREE.SRGBColorSpace;
