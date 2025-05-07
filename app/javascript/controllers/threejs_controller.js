@@ -1,9 +1,9 @@
 import { Controller } from "@hotwired/stimulus";
 import * as THREE from "three";
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm//three@0.165.0/examples/jsm/loaders/GLTFLoader.js'
-import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+// import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/loaders/GLTFLoader.js';
+// import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/controls/OrbitControls.js';
 
 export default class extends Controller {
   static targets = ["container"];
@@ -79,7 +79,7 @@ export default class extends Controller {
 
     const loader = new GLTFLoader();
     models.forEach(model => {
-      loader.load(`/app/assets/${model.path}`, (gltf) => {
+      loader.load(`${model.path}`, (gltf) => {
         gltf.scene.traverse((child) => {
           if (child.isMesh) {
             if (child.material.map) child.material.map.colorSpace = THREE.SRGBColorSpace;
