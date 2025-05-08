@@ -1,9 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 import * as THREE from "three";
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-// import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/loaders/GLTFLoader.js';
-// import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.165.0/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.174.0/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.174.0/examples/jsm/controls/OrbitControls.js";
 
 export default class extends Controller {
   static targets = ["container"];
@@ -23,11 +21,12 @@ export default class extends Controller {
   }
 
   initScene() {
-    // Renderer setup
+    // Renderer
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.setClearColor(0x000000);
+    // this.renderer.setClearColor(0x000000);
+    this.renderer.setClearColor(0x444444); // Medium gray background
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.shadowMap.enabled = true;
     this.element.appendChild(this.renderer.domElement);
@@ -60,6 +59,8 @@ export default class extends Controller {
     spotLight.shadow.bias = -0.0001;
     this.scene.add(spotLight);
 
+    const light = new THREE.AmbientLight( 0xa400f0, 1 );
+    this.scene.add(light);
     // Other lights setup similarly...
     // [Keep the rest of your lighting setup code here]
   }
@@ -81,6 +82,7 @@ export default class extends Controller {
     models.forEach(model => {
       loader.load(`${model.path}`, (gltf) => {
         gltf.scene.traverse((child) => {
+          console.log("mesh loaded")
           if (child.isMesh) {
             if (child.material.map) child.material.map.colorSpace = THREE.SRGBColorSpace;
             child.castShadow = true;
@@ -90,6 +92,10 @@ export default class extends Controller {
         gltf.scene.scale.set(model.scale, model.scale, model.scale);
         this.scene.add(gltf.scene);
       });
+      (error) => {
+        console.error('Failed to load:', model.path);
+        console.error('Full URL attempted:', error.url);
+      }
     });
   }
 
