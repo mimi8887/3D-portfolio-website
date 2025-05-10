@@ -29,15 +29,14 @@ export default class extends Controller {
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.shadowMap.enabled = true;
     // this.renderer.domElement.id = 'canvas';
-    this.element.appendChild(this.renderer.domElement);
-
-    // Scene and camera
+    const contentWrapper = document.querySelector('.vh-100.w-100');
+    contentWrapper.insertBefore(this.renderer.domElement, contentWrapper.firstChild);
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
     this.camera.position.set(30, 10, 30);
 
     // Controls
-    this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+    this.controls = new OrbitControls(this.camera, document.body);
     this.controls.enableDamping = true;
     this.controls.enablePan = false;
     this.controls.minDistance = 5;
