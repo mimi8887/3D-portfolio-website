@@ -28,10 +28,8 @@ export default class extends Controller {
     this.renderer.setClearColor(0x000000);
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.renderer.shadowMap.enabled = true;
-    // this.renderer.domElement.id = 'canvas';
-    this.element.appendChild(this.renderer.domElement);
+    document.querySelector('#canvas').appendChild(this.renderer.domElement);
 
-    // Scene and camera
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
     this.camera.position.set(30, 10, 30);

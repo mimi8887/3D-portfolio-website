@@ -9,7 +9,14 @@
   color: #00c3ff;
 }
 
+.header {
+  z-index: 10 !important;
+  position: relative !important;
+  pointer-events: auto !important;
+}
+
 .dropdown-item a,
+
 .dropdown-item h5 {
   text-decoration: none;  /* Removes underline */
   color: inherit;         /* Inherit the font color from the parent element */
