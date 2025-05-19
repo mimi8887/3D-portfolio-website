@@ -2,6 +2,8 @@ import { Controller } from "@hotwired/stimulus";
 import * as THREE from "three";
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.174.0/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.174.0/examples/jsm/controls/OrbitControls.js";
+import GUI from 'https://cdn.jsdelivr.net/npm/lil-gui@0.18.0/dist/lil-gui.esm.js';
+
 
 export default class extends Controller {
   static targets = ["container"];
@@ -32,7 +34,14 @@ export default class extends Controller {
 
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-    this.camera.position.set(30, 10, 30);
+    this.cameraStartPos = new THREE.Vector3(15.5, 4.3, 9.5);
+    this.cameraEndPos = new THREE.Vector3(11.6, 4.3, 13.6);
+    this.animationDuration = 6000;
+    this.animationStartTime = performance.now();
+    this.isAnimatingCamera = true;
+    this.camera.position.copy(this.cameraStartPos);
+
+
 
     // Controls
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
@@ -43,7 +52,7 @@ export default class extends Controller {
     this.controls.minPolarAngle = 0.5;
     this.controls.maxPolarAngle = 1.5;
     this.controls.autoRotate = false;
-    this.controls.target = new THREE.Vector3(2, 2.5, 1);
+    this.controls.target = new THREE.Vector3(-0.2, 3, -1.5);
     this.controls.update();
 
     // Lighting
@@ -91,6 +100,8 @@ export default class extends Controller {
     this.scene.add( pointLight3 );
   }
 
+
+
   loadModels() {
     const models = [
       { path: '3Dmodels/wall-floor/wall-floor.glb', scale: 0.5 },
@@ -135,10 +146,29 @@ export default class extends Controller {
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     };
     window.addEventListener('resize', this.handleWindowResize);
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'l') {
+        console.log('Camera Position:', this.camera.position);
+        console.log('Camera Target:', this.controls.target);
+      }
+    });
+
+
   }
 
   animate() {
     this.animationFrameId = requestAnimationFrame(this.animate.bind(this));
+    if (this.isAnimatingCamera) {
+      const elapsed = performance.now() - this.animationStartTime;
+      const t = Math.min(elapsed / this.animationDuration, 1); // normalized [0..1]
+
+      // Linear interpolation between start and end positions
+      this.camera.position.lerpVectors(this.cameraStartPos, this.cameraEndPos, t);
+
+      if (t === 1) {
+        this.isAnimatingCamera = false;  // stop animating after end reached
+      }
+    }
     this.controls.update();
     this.renderer.render(this.scene, this.camera);
   }
