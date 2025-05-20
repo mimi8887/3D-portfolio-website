@@ -9,9 +9,19 @@
   color: #00c3ff;
 }
 
+.paw-icon {
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.paw-icon:hover {
+  color: #a855f7; // purple-500 or change to your brand color
+  transform: scale(1.2); // optional "pop" effect
+}
+
 .header {
   z-index: 10 !important;
-  position: relative !important;
+  // position: relative !important;
   pointer-events: auto !important;
 }
 
