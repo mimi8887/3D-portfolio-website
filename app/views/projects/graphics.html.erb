@@ -6,11 +6,10 @@
           <p class="bold">Freelance Projects</p>
           <p>Designed and optimized 3D models and assets using Blender, Unity,
              and other software for clients in the art, music, and creative industries.</p>
-          <p>Choose a project and interact with the 3D model!</p>
         </div>
       </div>
-      <div class="col-md-8 col-12">
-        <div class="row">
+      <div class="projects col-md-8 col-12">
+        <div class="row mt-3">
           <% @projects.each_slice(3) do |graphics_group| %>
             <div class="row">
               <% graphics_group.each do |graphic| %>
@@ -26,5 +25,31 @@
           <% end %>
       </div>
     </div>
+    <div class="assets row w-100">
+          <div class="col-md-4 col-12 px-5 mt-3">
+            <div class="description">
+              <p class="bold">Assets</p>
+              <p>Designed and optimized 3D models using Blender for animations, film, and project proposals.</p>
+              <p>Choose a project and interact with the 3D model!</p>
+            </div>
+          </div>
+          <div class="col-md-8 col-12">
+              <div class="projects row">
+                <% @assets.each_slice(3) do |assets_group| %>
+                  <div class="row">
+                    <% assets_group.each do |asset| %>
+                      <div class="col-md-4 col-sm-6">
+                      <%= link_to project_path(asset) do %>
+                        <div class="project-card px-2">
+                            <%= image_tag asset.photos.first, alt: asset.name %>
+                        <% end %>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                <% end %>
+            </div>
+          </div>
+      </div>
   </div>
 </div>

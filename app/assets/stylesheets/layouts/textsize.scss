@@ -29,10 +29,9 @@ h4 {
 }
 
 h5 {
-  font-size: 1em !important;
+  font-size: 0.8em !important;
   color: #b6b6b6 !important;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 400 !important;
+  font-family: 'JetBrains Mono', monospace !important;
   a {
     color: inherit !important;  // Make links inherit color from h5
     text-decoration: none !important; // Remove underline
@@ -42,15 +41,12 @@ h5 {
 h6 {
   font-size: 1em !important;
   color: #a4a3a3 !important;
-  font-family: "Source Sans Pro", sans-serif;
   font-weight: 300 !important;
 }
 
 p {
-  font-size: 1rem;
+  font-size: 0.75em !important;
   color: #a19f9f !important;
-  font-family: "Source Sans Pro", sans-serif;
-  font-weight: 500 !important;
   text-decoration: none !important;
 }
 
