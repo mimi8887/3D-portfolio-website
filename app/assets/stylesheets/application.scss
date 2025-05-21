@@ -26,7 +26,6 @@ body, html {
 
 .application-card {
   width: 100%;
-  background: #222;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +33,12 @@ body, html {
   justify-content: center;
   overflow: hidden;
   padding: 2% !important;
-  background-color: black;
+  transition: transform 1s ease;
+
+}
+
+.application-card:hover{
+  transform: scale(1.1);
 }
 
 .application-card img {
@@ -45,8 +49,6 @@ body, html {
 }
 
 .application-card img:hover {
-  box-shadow: 0 0 15px rgba(191, 0, 255, 0.8);
-  border: 2px solid rgb(187, 144, 248);
   opacity: 1;
 }
 
