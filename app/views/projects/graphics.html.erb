@@ -1,4 +1,3 @@
-<%# <canvas data-controller="threejs" id="canvas" class="w-100"></canvas> %>
 <div class="container-fluid flex-grow-1 d-flex mt-4 pt-5">
   <div class="row w-100">
       <div class="col-md-4 col-12 px-5 mt-3">
@@ -14,7 +13,7 @@
             <div class="row">
               <% graphics_group.each do |graphic| %>
                 <div class="col-md-4 col-sm-6">
-                <%= link_to project_path(graphic) do %>
+                <%= link_to project_path(graphic), data: { action: "click->modal#open" } do %>
                   <div class="graphics-project-card px-3">
                       <%= image_tag graphic.photos.first, alt: graphic.name %>
                   <% end %>
@@ -39,7 +38,7 @@
                   <div class="row">
                     <% assets_group.each do |asset| %>
                       <div class="col-md-4 col-sm-6">
-                      <%= link_to project_path(asset) do %>
+                      <%= link_to project_path(asset), data: { action: "click->modal#open" } do %>
                         <div class="project-card px-2">
                             <%= image_tag asset.photos.first, alt: asset.name %>
                         <% end %>

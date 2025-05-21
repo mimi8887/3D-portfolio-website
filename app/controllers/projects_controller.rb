@@ -9,5 +9,10 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+
+    respond_to do |format|
+      format.html  # Regular page load
+      format.turbo_stream  # Turbo Stream response
+    end
   end
 end
