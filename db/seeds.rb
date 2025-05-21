@@ -57,7 +57,7 @@ club_ai.videos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/video/u
 #   ])
 
 ernie_castle.photos.attach([
-  {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544934/image4_btk5ts.png"), filename: "image_front.png"}
+  {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1747832891/cover_hjaksi.png"), filename: "ceramic_cover.png"}
   # {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544918/221206_KW_0094_HQ_1_iblywu.jpg"), filename: "original_image.jpg"},
   # {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544952/image2_oa2rmy.png"), filename: "zoom_view.png"}
   ])
@@ -69,7 +69,7 @@ gentle_leash.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/im
 # smart_city.photos.attach([{io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544920/SmartCity_2022_Moment_cdte3p.jpg"), filename: "smart_city.jpg"},
 #                           {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544918/installationview_loyemk.jpg"), filename: "smart_city_installation.jpg"}])
 
-gingko.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739650112/tang_bpbfla.jpg"), filename: "gingko.jpg")
+gingko.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1747832971/gingko_cover_pyz3ob.png"), filename: "gingko.png")
 
 # gingko.videos.attach([
 #   {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739661433/gingko_g8xkgm.mp4"), filename: "poster.mp4"},
