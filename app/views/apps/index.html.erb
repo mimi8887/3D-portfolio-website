@@ -3,7 +3,7 @@
     <div class="apps px-3">
       <div class="row mt-3">
         <% @applications.each do |application| %>
-          <div class="col-md-6 col-sm-6">
+          <div class="col-md-6 col-sm-12">
             <div class="application-card">
               <% application.photos.each do |photo| %>
                 <%= link_to application.link, target: "_blank", rel: "noopener" do %>

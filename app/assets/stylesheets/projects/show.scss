@@ -9,6 +9,11 @@
   max-height: 100vh;
   object-fit: contain;
 }
+
+.modal.show {
+  background-color: rgba(0, 0, 0, 0.75); /* darker than default (0.5) */
+}
+
 .back-button a {
   margin-top: 5%;
   padding-left: 8.5%;
