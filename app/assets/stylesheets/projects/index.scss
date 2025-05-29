@@ -73,7 +73,13 @@
 .intro-box {
   width: 35%;
   margin-right: 5%;
+  display: none;
 }
+
+.intro-box.visible {
+  display: block; 
+}
+
 
 .projects {
   padding-left: 8% !important;
