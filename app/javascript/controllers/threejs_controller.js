@@ -37,8 +37,6 @@ export default class extends Controller {
     this.cameraStartPos = new THREE.Vector3(15.5, 4.3, 9.5);
     this.cameraEndPos = new THREE.Vector3(11.6, 4.3, 13.6);
     this.animationDuration = 6000;
-    this.animationStartTime = performance.now();
-    this.isAnimatingCamera = true;
     this.camera.position.copy(this.cameraStartPos);
 
 
@@ -101,43 +99,70 @@ export default class extends Controller {
   }
 
 
-
-  loadModels() {
+    loadModels() {
     const models = [
-      { path: '3Dmodels/wall-floor/wall-floor.glb', scale: 0.5 },
-      { path: '3Dmodels/chair/chair.gltf', scale: 0.5 },
-      { path: '3Dmodels/desk/desk.glb', scale: 0.5 },
-      { path: '3Dmodels/screens/screens.glb', scale: 0.5 },
-      { path: '3Dmodels/curtain/curtain.glb', scale: 0.5 },
-      { path: '3Dmodels/bed/bed.gltf', scale: 0.5 },
-      { path: '3Dmodels/left_wall/left_wall.gltf', scale: 0.5 },
-      { path: '3Dmodels/aquarium/aquarium.glb', scale: 0.5 },
-      { path: '3Dmodels/table/low-table.glb', scale: 0.5 }
-    ];
+          { path: '3Dmodels/wall-floor/wall-floor.glb', scale: 0.5 },
+          { path: '3Dmodels/chair/chair.gltf', scale: 0.5 },
+          { path: '3Dmodels/desk/desk.glb', scale: 0.5 },
+          { path: '3Dmodels/screens/screens.glb', scale: 0.5 },
+          { path: '3Dmodels/curtain/curtain.glb', scale: 0.5 },
+          { path: '3Dmodels/bed/bed.gltf', scale: 0.5 },
+          { path: '3Dmodels/left_wall/left_wall.gltf', scale: 0.5 },
+          { path: '3Dmodels/aquarium/aquarium.glb', scale: 0.5 },
+          { path: '3Dmodels/table/low-table.glb', scale: 0.5 }
+        ];
 
-    const loader = new GLTFLoader();
-    models.forEach(model => {
-      loader.load(`${model.path}`, (gltf) => {
-        gltf.scene.traverse((child) => {
-          console.log("mesh loaded")
-          if (child.isMesh) {
-            if (child.material.map) child.material.map.colorSpace = THREE.SRGBColorSpace;
-            if (child.material.emissiveMap) {
-              child.material.emissiveIntensity = 5;
+      let loadedCount = 0;
+      const totalModels = models.length;
+
+      const loader = new GLTFLoader();
+      models.forEach(model => {
+        loader.load(
+          model.path,
+          (gltf) => {
+            gltf.scene.traverse((child) => {
+              if (child.isMesh) {
+                if (child.material.map) child.material.map.colorSpace = THREE.SRGBColorSpace;
+                if (child.material.emissiveMap) {
+                  child.material.emissiveIntensity = 5;
+                }
+                child.castShadow = true;
+                child.receiveShadow = true;
+              }
+            });
+            gltf.scene.scale.set(model.scale, model.scale, model.scale);
+            this.scene.add(gltf.scene);
+
+            loadedCount++;
+            if (loadedCount === totalModels) {
+              this.hideLoadingOverlay();
             }
-            child.castShadow = true;
-            child.receiveShadow = true;
+          },
+          undefined,
+          (error) => {
+            console.error('Failed to load:', model.path, error);
+            loadedCount++;
+            if (loadedCount === totalModels) {
+              this.hideLoadingOverlay();
+            }
           }
-        });
-        gltf.scene.scale.set(model.scale, model.scale, model.scale);
-        this.scene.add(gltf.scene);
+        );
       });
-      (error) => {
-        console.error('Failed to load:', model.path);
-        console.error('Full URL attempted:', error.url);
-      }
-    });
-  }
+    }
+
+    hideLoadingOverlay() {
+      const overlay = document.getElementById('loading-overlay');
+      const introBox = document.querySelector('.intro-box');
+    setTimeout(() => {
+        if (overlay) overlay.classList.add('hidden');
+
+        if (introBox) introBox.classList.add('visible');
+
+         this.animationStartTime = performance.now();
+         this.isAnimatingCamera = true;
+      }, 1000);
+    }
+
 
   setupEventListeners() {
     this.handleWindowResize = () => {
