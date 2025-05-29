@@ -177,21 +177,41 @@ export default class extends Controller {
         console.log('Camera Target:', this.controls.target);
       }
     });
+    }
 
 
+    showRotateHint() {
+    const hint = document.getElementById('rotate-hint');
+    if (!hint) return;
+
+    hint.classList.add('show');
+
+    setTimeout(() => {
+      hint.classList.remove('show');
+    }, 1500);
   }
+
 
   animate() {
     this.animationFrameId = requestAnimationFrame(this.animate.bind(this));
     if (this.isAnimatingCamera) {
       const elapsed = performance.now() - this.animationStartTime;
       const t = Math.min(elapsed / this.animationDuration, 1); // normalized [0..1]
-
-      // Linear interpolation between start and end positions
       this.camera.position.lerpVectors(this.cameraStartPos, this.cameraEndPos, t);
 
-      if (t === 1) {
-        this.isAnimatingCamera = false;  // stop animating after end reached
+    if (t === 1 && this.isAnimatingCamera) {
+      this.isAnimatingCamera = false;
+
+        const hint = document.getElementById('rotate-hint');
+        if (hint) {
+          hint.classList.remove('show');
+          void hint.offsetWidth;
+          hint.classList.add('show');
+
+         setTimeout(() => {
+            hint.classList.remove('show');
+          }, 3000);
+        }
       }
     }
     this.controls.update();
