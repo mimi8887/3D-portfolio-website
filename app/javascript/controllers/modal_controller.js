@@ -8,24 +8,22 @@ export default class extends Controller {
     this.carousel = null
   }
 
-  open(event) {
-    event.preventDefault()
-    const url = event.currentTarget.href
+    open(event) {
+      event.preventDefault()
+      const url = event.currentTarget.href
 
-    fetch(url, {
-      headers: { Accept: "text/vnd.turbo-stream.html" }
-    })
-    .then(response => response.text())
-    .then(html => {
-      this.contentTarget.innerHTML = html
-      this.modal.show()
+      fetch(url, {
+        headers: { Accept: "text/vnd.turbo-stream.html" }
+      })
+        .then(response => response.text())
+        .then(html => {
+          this.contentTarget.innerHTML = html
 
-      // Initialize carousel after modal is shown
-      this.contentTarget.addEventListener('shown.bs.modal', () => {
-        this.initializeCarousel()
-      }, { once: true })
-    })
-  }
+          this.initializeCarousel()
+
+          this.modal.show()
+        })
+    }
 
   initializeCarousel() {
     // Destroy previous carousel instance if exists

@@ -80,18 +80,20 @@
   display: block;
 }
 
-.rotate-hint {
+
+#rotate-hint {
   position: absolute;
-  top: 45%;
-  left: 38%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 1rem;
-  opacity: 0;
-  pointer-events: none;
+  top: 50%;
+  left: 40%;
+  transform: translateY(-50%);
   z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.333); /* dark gray, half opaque */
+  border: 2px rgba(255, 255, 255, 0.726);
 }
 
 #rotate-hint.show {
