@@ -9,7 +9,7 @@
 
 <% photos = project.photos %>
 
-<div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+<div id="projectCarousel" class="carousel slide" data-bs-interval="false">
 <div class="carousel-inner">
   <% photos.each_with_index do |photo, index| %>
     <div class="carousel-item <%= 'active' if index.zero? %>">
