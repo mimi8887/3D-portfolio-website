@@ -13,13 +13,13 @@ Application.destroy_all
 
 puts 'Creating projects...'
 gravestones = Project.create(name: "3D Assets for Yi Li", category: "assets", description: "3D Assets for Yi Li")
-club_paradiso = Project.create(name: "Hikawa Yoshitaka, Poster and USB design", category: "graphics", description: "USB album for japanese musician Hikawa Yoshitaka,
-                               poster made for the launch party in Tokyo")
-club_ai = Project.create(name: "Flyer Club 愛",  category: "graphics", description: "Digital Flyer made for Club 愛")
+club_paradiso = Project.create(name: "Hikawa Yoshitaka, Poster and USB design", category: "graphics", description: "USB album for Hikawa Yoshitaka,
+                               poster made for the launch event in Tokyo, 2021")
+club_ai = Project.create(name: "Flyer Club 愛",  category: "graphics", description: "Digital Flyer and promotion poster made for Club 愛, Berlin, 2024")
 gingko = Project.create(name: "gingko", category: "assets", description: "other time")
 ernie_castle = Project.create(name: "3D modelling for Ernie Wang", category: "assets", description: "3D modelling for Efermidis Gallery")
-juan_carlos = Project.create(name: "Juan Carlos avatar", category: "assets", description: "Avatar for Conversation in a crosstown algorithm")
-gentle_leash = Project.create(name: "Gentle Leash",  category: "graphics", description: "Poster for PanAsian event in Hamburg")
+simon_denny = Project.create(name: "Sculpture render", category: "assets", description: "3D modelling and rendering for Public scultpure competition")
+gentle_leash = Project.create(name: "Gentle Leash",  category: "graphics", description: "Poster for Gentle Leash event in Hamburg")
 
 puts "Creating Mobile Applications..."
 
@@ -32,32 +32,42 @@ ab_ar = Application.create(name: "AB AR", description: "ABAR is an interactive a
 
 puts 'Attaching photos'
 
-gravestones.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739545592/gravestone_jk0gxe.png"), filename: "gravestone.png")
-# gravestones.videos.attach([
-#   {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739545415/video_1_o798cz.mp4"), filename: "gravestone.mp4"},
-#   {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739545038/butterfly_bh2lgp.mp4"), filename: "butterfly.mp4"},
-#   {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739544977/magicalstick_do8ulj.mp4"), filename: "magicalstick.mp4"},
-#   ])
 
 club_paradiso.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544918/club_glhfg5.png"), filename: "poster.jpg")
+club_paradiso.videos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739544975/loop_n04ooe.mp4"),
+filename: "loop.mp4")
+club_paradiso.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739552001/USB_kwvmxp.png"), filename: "front.png")
+club_paradiso.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544929/USB_cmjm_BACKrere_ncbj4y.jpg"), filename: "back.png")
 
 
 club_ai.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739553718/poster1_rgyv4m.png"),
-                      filename: "poster.png")
+filename: "poster.png")
 club_ai.videos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739544974/HD_01_e9hgpg.mp4"),
-                      filename: "poster.mp4")
+filename: "poster.mp4")
+
+gentle_leash.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739660281/A2_poster_blue_tfuqab.jpg"), filename: "poster.jpg")
+gentle_leash.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739743636/untitled_x8rwmi.jpg"), filename: "3D.jpg")
+
+gravestones.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1748351108/0250_wzuoys.png"), filename: "gravestone1.png")
+gravestones.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1748351116/0000_d9n1a7.png"), filename: "gravestone2.png")
+gravestones.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739658176/butterfly_ceefox.png"), filename: "gravestone3.png")
 
 ernie_castle.photos.attach([
   {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1747832891/cover_hjaksi.png"), filename: "ceramic_cover.png"},
-  {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544918/221206_KW_0094_HQ_1_iblywu.jpg"), filename: "original_image.jpg"},
-  {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544952/image2_oa2rmy.png"), filename: "zoom_view.png"}
+  {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544935/image5_pdtmdo.png"), filename: "render.jpg"},
+  {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544934/image6_tmvdvx.png"), filename: "render2.jpg"},
+  {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544918/221206_KW_0094_HQ_1_iblywu.jpg"), filename: "original.png"}
   ])
 
-juan_carlos.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739647463/jC_osvkr9.png"), filename: "Juan_Carlos.png")
+simon_denny.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1748685856/render3_xpymtl.png"), filename: "sculpture_cover.png")
+simon_denny.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1748351774/render2_ejnlst.png"), filename: "side.png")
+simon_denny.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1748351727/test1_d98ncy.png"), filename: "render.png")
 
-gentle_leash.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739660281/A2_poster_blue_tfuqab.jpg"), filename: "poster.jpg")
 
 gingko.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1747832971/gingko_cover_pyz3ob.png"), filename: "gingko.png")
+gingko.videos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739661433/gingko_g8xkgm.mp4"),filename: "gingko.mp4")
+gingko.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739650112/tang_bpbfla.jpg"), filename: "gingko_all.png")
+
 
 # gingko.videos.attach([
 #   {io: URI.open("https://res.cloudinary.com/dlmjemn37/video/upload/v1739661433/gingko_g8xkgm.mp4"), filename: "poster.mp4"},
