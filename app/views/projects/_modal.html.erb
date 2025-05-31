@@ -7,16 +7,23 @@
   <button type="button" class="btn-close btn-close-white position-absolute end-0 top-0 mt-3 me-3" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 
-<% photos = project.photos %>
+<% media = project.photos + project.videos %>
 
-<div id="projectCarousel" class="carousel slide" data-bs-interval="false">
-<div class="carousel-inner">
-  <% photos.each_with_index do |photo, index| %>
-    <div class="carousel-item <%= 'active' if index.zero? %>">
-      <%= image_tag photo, class: "fullscreen-image d-block w-100" %>
-    </div>
-  <% end %>
-</div>
+<div id="projectCarousel" class="carousel slide mt-3" data-bs-interval="false">
+  <div class="carousel-inner">
+    <% media.each_with_index do |item, index| %>
+      <div class="carousel-item <%= 'active' if index.zero? %>">
+        <% if item.image? %>
+          <%= image_tag item, class: "fullscreen-image d-block w-100" %>
+        <% elsif item.video? %>
+          <video autoplay loop muted playsinline class="fullscreen-image d-block w-100">
+            <source src="<%= url_for(item) %>" type="<%= item.content_type %>">
+            Your browser does not support the video tag.
+          </video>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 
   <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -26,11 +33,10 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-
-
 </div>
 
 <p class="mt-3"><%= project.description %></p>
+
 
 <div class="modal-footer">
 </div>
