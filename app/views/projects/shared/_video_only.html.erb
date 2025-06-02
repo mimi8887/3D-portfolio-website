@@ -1,5 +1,0 @@
-<div class="mb-5 vh-100">
-  <% @project.videos.each do |video| %>
-    <%= video_tag video, controls: false, autoplay: true, loop: true, class: "#{@project.category} img-fluid mt-3" %>
-  <% end %>
-</div>
