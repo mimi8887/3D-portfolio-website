@@ -101,15 +101,15 @@ export default class extends Controller {
 
     loadModels() {
     const models = [
-          { path: '3Dmodels/wall-floor/wall-floor.glb', scale: 0.5 },
-          { path: '3Dmodels/chair/chair.gltf', scale: 0.5 },
-          { path: '3Dmodels/desk/desk.glb', scale: 0.5 },
-          { path: '3Dmodels/screens/screens.glb', scale: 0.5 },
-          { path: '3Dmodels/curtain/curtain.glb', scale: 0.5 },
-          { path: '3Dmodels/bed/bed.gltf', scale: 0.5 },
-          { path: '3Dmodels/left_wall/left_wall.gltf', scale: 0.5 },
-          { path: '3Dmodels/aquarium/aquarium.glb', scale: 0.5 },
-          { path: '3Dmodels/table/low-table.glb', scale: 0.5 }
+          { path: 'https://res.cloudinary.com/dlmjemn37/image/upload/v1748957973/wall-floor_gg9py9.glb', scale: 0.5 },
+          { path: 'https://res.cloudinary.com/dlmjemn37/image/upload/v1748957969/chair_jalkad.glb', scale: 0.5 },
+          { path: 'https://res.cloudinary.com/dlmjemn37/image/upload/v1748957974/desk_hok2y1.glb', scale: 0.5 },
+          { path: 'https://res.cloudinary.com/dlmjemn37/image/upload/v1748957971/screens_stywns.glb', scale: 0.5 },
+          { path: 'https://res.cloudinary.com/dlmjemn37/image/upload/v1748957973/curtain_n4tawg.glb', scale: 0.5 },
+          { path: 'https://res.cloudinary.com/dlmjemn37/image/upload/v1748957970/bed_nsskmq.glb', scale: 0.5 },
+          { path: 'https://res.cloudinary.com/dlmjemn37/image/upload/v1748957971/left_wall_dgz64a.glb', scale: 0.5 },
+          { path: 'https://res.cloudinary.com/dlmjemn37/image/upload/v1748957971/aquarium_yllcje.glb', scale: 0.5 },
+          { path: 'https://res.cloudinary.com/dlmjemn37/image/upload/v1748957968/low-table_ppc7nj.glb', scale: 0.5 }
         ];
 
       let loadedCount = 0;
