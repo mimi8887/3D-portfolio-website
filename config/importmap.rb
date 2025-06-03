@@ -8,4 +8,3 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "bootstrap", to: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
 pin "three", to: "https://cdn.jsdelivr.net/npm/three@0.174.0/build/three.module.js"
-pin "controllers/modal_controller", to: "controllers/modal_controller.js"
