@@ -18,7 +18,7 @@ club_paradiso = Project.create(name: "Hikawa Yoshitaka, Poster and USB design", 
 club_ai = Project.create(name: "Flyer Club 愛",  category: "graphics", description: "Digital Flyer and promotion poster made for Club 愛, Berlin, 2024")
 gingko = Project.create(name: "gingko", category: "assets", description: "other time")
 ernie_castle = Project.create(name: "3D modelling for Ernie Wang", category: "assets", description: "3D modelling for Efermidis Gallery")
-simon_denny = Project.create(name: "Sculpture render", category: "assets", description: "3D modelling and rendering for Public scultpure competition")
+# simon_denny = Project.create(name: "Sculpture render", category: "assets", description: "3D modelling and rendering for Public scultpure competition")
 gentle_leash = Project.create(name: "Gentle Leash",  category: "graphics", description: "Poster for Gentle Leash event in Hamburg")
 
 puts "Creating Mobile Applications..."
@@ -59,9 +59,9 @@ ernie_castle.photos.attach([
   {io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1739544918/221206_KW_0094_HQ_1_iblywu.jpg"), filename: "original.png"}
   ])
 
-simon_denny.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1748685856/render3_xpymtl.png"), filename: "sculpture_cover.png")
-simon_denny.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1748351774/render2_ejnlst.png"), filename: "side.png")
-simon_denny.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1748351727/test1_d98ncy.png"), filename: "render.png")
+# simon_denny.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1748685856/render3_xpymtl.png"), filename: "sculpture_cover.png")
+# simon_denny.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1748351774/render2_ejnlst.png"), filename: "side.png")
+# simon_denny.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1748351727/test1_d98ncy.png"), filename: "render.png")
 
 
 gingko.photos.attach(io: URI.open("https://res.cloudinary.com/dlmjemn37/image/upload/v1747832971/gingko_cover_pyz3ob.png"), filename: "gingko.png")
