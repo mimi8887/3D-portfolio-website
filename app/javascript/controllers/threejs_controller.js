@@ -148,7 +148,7 @@ export default class extends Controller {
 
         // Original position/scale/rotation
         model.position.set(1.6, 0.2, 3.4);
-        model.scale.set(0.065, 0.065, 0.065);
+        model.scale.set(0.065, 0.062, 0.065);
         model.rotation.set(0, 1.19, 0);
 
         this.furryModel = model;
